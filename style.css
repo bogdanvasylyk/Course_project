@@ -1,0 +1,167 @@
+body {
+	
+	margin: 0px auto;
+	background-color: white;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+/* start header block*/
+header{
+	border: 0px solid green;
+	border-radius: 3px;
+  text-align:left;
+  margin: 0px;
+  background: linear-gradient(to right, #10C7A5, #E4FFD5);
+  color: white;
+  height: 90px;
+  padding-left: 20px;
+  margin-bottom: 8px;
+   /* background-image: url(img/header_img.jpg);*/
+  /*  font-family:trebuchet ms sans-serif;*/
+    /*background:#00688B;*/
+
+  }
+header h1 {
+  padding-top:20px;
+  font-size: 24px;
+	border: 0px solid green;
+  margin-bottom: 0px;
+    
+  }
+ .header_logo {
+  border: 0px solid green;
+    margin-top: 0px;
+    font-size: 14px;
+    padding-left: 36px;
+  }
+
+    /*end of header*/
+
+
+
+/*Starp wrapper*/
+#wrapper {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 3px;
+  justify-content:space-around;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+  }
+
+ section {
+  border-left-color: #DBDBDB;
+  border-left-width: 2px;
+  border-left-style: solid;
+ } 
+
+section, nav, footer {
+  background: #FFFFFF; /* Цвет фона */
+  padding: 10px;
+	/*border: 0px solid grey;*/
+  margin: 1px;
+    /*background-color: #A6CEDB;*/
+  border-radius: 3px;
+  padding-left: 5px;
+  }
+/*finish wrapper*/
+
+
+/*start navi*/
+nav {  
+  flex:1;
+  max-width: 200px;
+}
+nav a {
+  margin-bottom: 10px;
+  border: 0px solid black;
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: block;
+
+}
+
+#navbar {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 200px;
+}
+#navbar a {
+  background-color: #10C7A5;
+  padding-bottom: 10px;
+  padding-top: 0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  font-family: sans-serif;
+}
+}
+#navbar li {
+}
+
+
+article {
+  border: 0px solid green;
+  
+    margin: 1px;
+  }
+
+
+
+/*Start content block*/
+#content {
+	flex:4;
+}
+
+#Button_calculate {
+  width: 200px;
+   margin-left:auto;
+   margin-right:auto;
+
+
+}
+
+
+/*Start progress block*/
+#progres_bar {
+  flex:1.5;
+}
+
+progress[value] {
+    -webkit-appearance: progress-bar;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 2.5em;
+    width: 25em;
+    vertical-align: -0.2em;
+    color: #0063a6;
+    line-height: 1.5em;
+    width: 15em;
+    height: 1.8em;
+    border: 1px solid #0063a6;
+    background: #E7F0F0;
+    margin-bottom:5px;
+    }
+
+
+/*Start footer block*/
+footer {
+  border: 1px solid grey;
+  clear:both;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+  }
+
+
+
+footer p {
+  font-size:14px;
+    text-align:center;
+    margin: 1px;
+  }
+

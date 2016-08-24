@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Калькулятор хавла</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<header>
+  		<h1 class="headerH1">Food counter</h1>
+  		<span class="header_logo">count your health</span>
+	</header>
+	<div id="wrapper">
+		<nav>
+		   		<ul id="navbar">
+			  		<li><a href="#">Головна</a></li>
+			   		<li><a href="#">Продукти</a></li>
+			   		<li><a href="#">Додати продукти</a></li>
+			   		<li><a href="#">Ссылка 2</a></li>
+			   		<li><a href="#">Ссылка 2</a></li>
+				</ul>
+  		  		
+		 </nav>
+		
+		<section id="content">
+	  		<h1>Введіть параметри  </h1>
+	  		<form name="form1">
+				<fieldset>
+					<legend>Особисті дані</legend>
+					<p>
+						<label>Зріст, см: <input type="text" id="height" name="height" placeholder="" size="2" maxlength="3"></input></label>
+						<label>Вага, кг: <input type="text" id="weight" name="weight" placeholder="" size="2" maxlength="5"></input></label>
+						<label>Вік, р: <input type="text" id="age" name="age" placeholder="" size="2" maxlength="2"></input></label>
+					</p>
+					<p>Стать:					
+						<label><input id="sexWoman" type="radio" name="sex" checked></input>жінка</label>
+						<label><input id="sexMan" type="radio" name="sex" ></input>чоловік</label>
+						
+					</p>
+
+
+					<p name='formula'>По формулі:
+						<input id='Harris-ben' type="radio" name="formula" checked></input>Харріс-Бенедикта
+						<input id='Mifflin-jeor' type="radio" name="formula"></input>Міффлина — Сан Жеора
+					</p>
+
+					<p><label for="sl">Рівень фізичного навантаження</label></p>
+					<p>
+						<select name="activity_level" id="sl">
+							<option value='0'>мінімальний (жодних фізичних навантажень)</option>
+							<option value='1'>низький (фізичні навантаження 1-3 раза на тиждень)</option>
+							<option value='3' selected>середній (3-5 днів на тиждень)</option>
+							<option value='6'>високий (6-7 разів на тиждень)</option>
+							<option value='8'>дуже високий (частіше ніж 1 раз на день)</option>
+						</select>
+					</p>
+			</fieldset>
+						<p><input type="button" value="Розрахувати" id="calcButton"></p>
+						</form>
+						
+	<script src="main.js"></script>
+						
+
+		</section>
+		<section id="progres_bar">
+	  		<h1>Результати</h1>
+	  		<article id="progress_block">
+	  			<p>Кількість калорій: <span id="amount_cal">1200</span>од.</p>
+	   	 		<p><progress class="determinate" value="120" max="100"></progress>
+	   	 		<span id="percent_cal">80</span><span>%</span></p>
+
+	   	 		<p>Білки: <span id="amount_prot">60</span>г</p>
+	   	 		<p><progress class="determinate" value="60" max="100"></progress>
+	   	 		<span id="percent_prot">60</span><span>%</span></p>
+
+	   	 		<p>Жири: <span id="amount_fat">45</span>г</p>
+	   	 		<p><progress class="determinate" value="75" max="100"></progress>
+	   	 		<span id="percent_fat">75</span><span>%</span></p>
+
+	   	 		<p>Вуглеводи: <span id="amount_carb">80</span>г</p>
+	   	 		<p><progress class="determinate" value="90" max="100"></progress>
+	   	 		<span id="percent_carb">90</span><span>%</span></p>
+	   	 		
+	   	 		
+	  		</article>
+	  	</section>
+	</div>
+	<footer>
+  		<p>© 2016  Bogdan Vasylyk</p>
+	</footer>
+
+</body>
+</html>
