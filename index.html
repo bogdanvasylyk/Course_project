@@ -4,6 +4,7 @@
 <title>Калькулятор хавла</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="main.js" async></script>
 
 </head>
 <body>
@@ -41,25 +42,29 @@
 
 
 					<p name='formula'>По формулі:
-						<input id='Harris-ben' type="radio" name="formula" checked></input>Харріс-Бенедикта
-						<input id='Mifflin-jeor' type="radio" name="formula"></input>Міффлина — Сан Жеора
+						<input id='Harris-ben' type="radio" name="formula" checked>Харріс-Бенедикта</input>
+						<input id='Mifflin-jeor' type="radio" name="formula">Міффлина — Сан Жеора</input>
+					</p>
+					<p name='target'>Ціль:
+						<input id='weight_reduction' type="radio" name="target" checked></input>Зменшення ваги
+						<input id='weight_maintenance' type="radio" name="target"></input>Утримання ваги
+						<input id='weight_gain' type="radio" name="target"></input>Набір ваги
 					</p>
 
 					<p><label for="sl">Рівень фізичного навантаження</label></p>
 					<p>
 						<select name="activity_level" id="sl">
-							<option value='0'>мінімальний (жодних фізичних навантажень)</option>
-							<option value='1'>низький (фізичні навантаження 1-3 раза на тиждень)</option>
-							<option value='3' selected>середній (3-5 днів на тиждень)</option>
-							<option value='6'>високий (6-7 разів на тиждень)</option>
-							<option value='8'>дуже високий (частіше ніж 1 раз на день)</option>
+							<option value='1.2'>мінімальний (жодних фізичних навантажень)</option>
+							<option value='1.375'>низький (фізичні навантаження 1-3 раза на тиждень)</option>
+							<option value='1.4625' selected>середній (3-5 днів на тиждень)</option>
+							<option value='1.6375'>високий (6-7 разів на тиждень)</option>
+							<option value='1.725'>дуже високий (частіше ніж 1 раз на день)</option>
 						</select>
 					</p>
 			</fieldset>
 						<p><input type="button" value="Розрахувати" id="calcButton"></p>
 						</form>
 						
-	<script src="main.js"></script>
 						
 
 		</section>
