@@ -12,18 +12,16 @@
   		<h1 class="headerH1">Food counter</h1>
   		<span class="header_logo">count your health</span>
 	</header>
-	<menu id="navbar">
+	<menu id="menu">
 			<li id="navTable" class="">Табляця калорійності продуктів</li>
 			<li id="navProducts" class="active">Підрахунок спожитих калорій</li>
-			<li id="navAddProduct" class="">Додати продукти</li>
-		 		  		
+			<li id="navAddProduct" class="">Додати продукти</li>		 		  		
 	</menu>
 	<div id="wrapper">
 		
-		<section id='PersonalData'>
-	  		<h1>Введіть параметри  </h1>
+		<section id='PersonalData'>	  		
 	  		<form name="form1" >
-				<fieldset id="fieldset1">
+				<fieldset id="fieldset1" class="fieldset">
 					<legend>Особисті дані</legend>
 					<p>
 						<label>Зріст: <input type="text" id="height" name="height" placeholder="см" size="2" maxlength="3" required></input></label>
@@ -31,19 +29,19 @@
 						<label>Вік: <input type="text" id="age" name="age" placeholder="роки" size="2" maxlength="2" required></input></label>
 					</p>
 					<p>Стать:					
-						<label><input id="sexWoman" type="radio" name="sex" checked></input>жінка</label>
-						<label><input id="sexMan" type="radio" name="sex" ></input>чоловік</label>	
+						<label><input id="sexWoman" type="radio" name="sex" checked value="woman"></input>жінка</label>
+						<label><input id="sexMan" type="radio" name="sex" value="man"></input>чоловік</label>	
 					</p>
 					<p name='formula' class="block">По формулі:
-						<label><input id='Harris-ben' type="radio" name="formula" checked>Харріс-Бенедикта</label>
-						<label><input id='Mifflin-jeor' type="radio" name="formula">Міффлина — Сан Жеора</label>
+						<label><input id='Harris-ben' type="radio" name="formula" value="HB" checked>Харріс-Бенедикта</label>
+						<label><input id='Mifflin-jeor' type="radio" name="formula" value="MJ">Міффлина — Сан Жеора</label>
 					</p>
 					<p class="block">Ціль:
-						<label><input value='weight_reduction' type="radio" name="target" checked>Зменшення ваги</label>
+						<label><input value='0.85' type="radio" name="target" checked>Зменшення ваги</label>
 						
-						<label><input value='weight_maintenance' type="radio" name="target">Утримання ваги</label>
+						<label><input value='1' type="radio" name="target">Утримання ваги</label>
 						
-						<label><input value='weight_gain' type="radio" name="target">Набір ваги</label>
+						<label><input value='1.15' type="radio" name="target">Набір ваги</label>
 					</p>
 					<p><label for="sl">Рівень фізичного навантаження</label></p>
 					<p>
@@ -56,10 +54,10 @@
 						</select>
 					</p>
 				</fieldset>
-					<div class="result">
-						<p><input type="button" value="Розрахувати" id="calcButton"></p>
-						<p id="result">0<span> ккал</span> </p>
-					</div>
+				<div class="result">
+					<p id="buttonPD"><input type="button" value="Розрахувати" id="calcButton"></p>
+					<p id="result"></p>
+				</div>
 			</form>					
 		</section>
 		<section class="hidden" id='productTable'>
@@ -83,37 +81,56 @@
 		</section>
 		<section class="hidden" id='addProduct'>
 			<form id="addForm">
-				<table>
-					<tr>
-					    <th>Назва продукту</th> 
-					    <th><input class='addProductField' type="text" id="name" required></th>				    
-				  	</tr>
-				  	<tr>
-					    <td>Калорії, ккал</td> 
-					    <td><input  class='addProductField' type="text" id="calories" maxlength="3" required></td>
-					    
-				  	</tr>
-				  	<tr>
-					    <td>Білки, г</td> 
-					    <td><input  class='addProductField' type="text" id="proteins" required></td>
-				  	</tr>
-				  	<tr>
-					    <td>Жири, г</td> 
-					    <td><input class='addProductField' type="text" id="fats" required></td>
-				  	</tr>
-				  	<tr>
-					    <td>Вуглеводи, г</td> 
-					    <td><input class='addProductField' type="text" id="carbohydrates" required></td>
-				  	</tr>
-				  	<tr>
-					    <td>Група</td> 
-					    <td><input class='addProductField' type="text" id="group" required></td>
-				  	</tr>
-				  	<tr>
-					    <td>Вага, гр</td> 
-					    <td><input class='addProductField' type="text" id="weight" required></td>
-				  	</tr>
-				</table>
+				<fieldset class="fieldset">
+					<legend>Особисті дані</legend>
+					<div id="fieldset2">
+						<div class="addFormColumn" id="addFormColumn1">
+							<p>Назва продукту</p> 
+							<p>Калорії, ккал</p> 
+							<p>Білки, г</p> 
+							<p>Жири, г</p> 
+							<p>Вуглеводи, г</p>
+							<p>Група</p> 					
+						</div>
+						<div class="addFormColumn" id="addFormColumn2">
+							<p><input class='addProductField' type="text" id="name" required></p>
+							<p><input class='addProductField' type="number" id="calories" maxlength="3" required></p>
+							<p><input class='addProductField' type="number" id="proteins" required></p>
+							<p><input class='addProductField' type="number" id="fats" required></p>
+							<p><input class='addProductField' type="number" id="carbohydrates" required></p>
+							<p>
+								<select class='addProductField' type="text" id="group" required>
+									<option >алкоголь</option>
+									<option>гриби</option>
+									<option>каші, крупи</option>
+									<option>ковбаса</option>
+									<option>компоти</option>
+									<option>масла</option>
+									<option>молочні</option>
+									<option>морож. овочі</option>
+									<option>мучне</option>
+									<option>мясо</option>
+									<option>овочі</option>
+									<option>орехи</option>
+									<option>протеїн</option>
+									<option>інше</option>
+									<option>риба</option>
+									<option>солодощі</option>
+									<option>зміш. страви</option>
+									<option>соки</option>
+									<option>супи</option>
+									<option>сухофрукти</option>
+									<option>сири</option>
+									<option>творог</option>
+									<option>фрукти</option>
+									<option>хліб</option>
+									<option>ягоди</option>
+									<option>яйця</option>
+								</select>
+							</p>					
+						</div>	
+					</div>
+				</fieldset>		
 			</form>
 				<button id=addProductButton>Додати продукт</button>
 		</section>
@@ -123,21 +140,21 @@
 	  		<h1>Результати</h1>
 	  		<article id="progress_block">
 	  			
-	  			<p>Кількість калорій: <span id="amount_cal">0</span>од.</p>
+	  			<p>Кількість калорій: <span id="amount_cal">0</span> ккал</p>
 	   	 		<p><progress class="determinate" value="80" max="100"></progress>
-	   	 		<span id="percent_cal">80</span><span>%</span></p>
+	   	 		<span id="percent_cal">80</span><span> %</span></p>
 
-	   	 		<p>Білки: <span id="amount_prot">0</span>г</p>
+	   	 		<p>Білки: <span id="amount_prot">0</span> г</p>
 	   	 		<p><progress class="determinate" value="60" max="100"></progress>
-	   	 		<span id="percent_prot">60</span><span>%</span></p>
+	   	 		<span id="percent_prot">60</span><span> %</span></p>
 
-	   	 		<p>Жири: <span id="amount_fat">0</span>г</p>
+	   	 		<p>Жири: <span id="amount_fat">0</span> г</p>
 	   	 		<p><progress class="determinate" value="75" max="100"></progress>
-	   	 		<span id="percent_fat">75</span><span>%</span></p>
+	   	 		<span id="percent_fat">75</span><span> %</span></p>
 
-	   	 		<p>Вуглеводи: <span id="amount_carb">0</span>г</p>
+	   	 		<p>Вуглеводи: <span id="amount_carb">0</span> г</p>
 	   	 		<p><progress class="determinate" value="90" max="100"></progress>
-	   	 		<span id="percent_carb">90</span><span>%</span></p>
+	   	 		<span id="percent_carb">90</span><span> %</span></p>
 	   	 		
 	   	 		
 	  		</article>
