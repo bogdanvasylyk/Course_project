@@ -1,9 +1,12 @@
 body {
-	
+	display: flex;
+  flex-direction: column;
 	margin: 0px auto;
 	background-color: white;
 	padding-left: 10px;
 	padding-right: 10px;
+  font-size:14px; 
+
 }
 
 
@@ -17,7 +20,7 @@ header{
   color: white;
   height: 90px;
   padding-left: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
    /* background-image: url(img/header_img.jpg);*/
   /*  font-family:trebuchet ms sans-serif;*/
     /*background:#00688B;*/
@@ -43,14 +46,24 @@ header h1 {
 
 /*Starp wrapper*/
 #wrapper {
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  border-radius: 3px;
-  justify-content:space-around;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: row;
+    color: #6b6767;
   }
+#PersonalData {
+  /*display: block;*/
+  flex: 1;
+
+}
+
+.block label {
+  display: block;
+}
+
+#productTable, #consumedProducts, #addProduct {
+  flex: 3;
+}
 
  section {
   border-left-color: #DBDBDB;
@@ -58,78 +71,144 @@ header h1 {
   border-left-style: solid;
  } 
 
-section, nav, footer {
+section, footer {
   background: #FFFFFF; /* Цвет фона */
   padding: 10px;
-	/*border: 0px solid grey;*/
+  /*border: 0px solid grey;*/
   margin: 1px;
     /*background-color: #A6CEDB;*/
-  border-radius: 3px;
-  padding-left: 5px;
+ /* padding-left: 5px;*/
   }
 /*finish wrapper*/
-
+section h1 {
+    margin-top: 0;
+}
 
 /*start navi*/
-nav {  
-  flex:1;
-  max-width: 200px;
-}
-nav a {
-  margin-bottom: 10px;
-  border: 0px solid black;
-  font-size: 20px;
-  margin-bottom: 10px;
-  display: block;
 
-}
-
-#navbar {
+menu {
+  margin-bottom: 4px;
   margin: 0;
   padding: 0;
   list-style-type: none;
-  width: 200px;
-}
-#navbar a {
-  background-color: #10C7A5;
-  padding-bottom: 10px;
-  padding-top: 0;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  display: block;
-  font-family: sans-serif;
-}
-}
-#navbar li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+
 }
 
+menu li {  
+  background-color: #c3c7c2;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 18px;
+  flex:1;
+  text-align: center;
+  cursor:pointer;
+  outline: none;
+  transition: 0.3s;
+  border: 1px solid #FFFFFF;
+}
+menu li.active {  
+  background-color: #10C7A5;
+  transition: 0.3s;
+}
+
+menu li:hover {  
+  background-color: #10C7A5;
+  transition: 0.3s;
+  border: 1px solid #0d8c74;
+
+}
 
 article {
-  border: 0px solid green;
-  
+  border: 0px solid green;  
     margin: 1px;
   }
 
 
 
 /*Start content block*/
-#content {
-	flex:4;
-}
 
-#Button_calculate {
-  width: 200px;
-   margin-left:auto;
-   margin-right:auto;
+        /*Start content.personal Data block*/
+        #fieldset1 {
+          border:1px solid #0d8c74;
+          -moz-border-radius:8px;
+          -webkit-border-radius:8px;  
+          border-radius:8px;  
+          }
+
+          #fieldset1 legend {
+            display: block;
+            background-color: #10c7a5;
+            color: white;
+            border-radius:3px
+
+           
+          }
 
 
-}
+          /*End content.personal Data block*/   
+
+    .content {
+      
+    }
+    .result {
+      display: flex;
+      flex-direction: row;
+    }
+
+
+    #calcButton {
+      width: 100px;
+      margin:auto;
+      
+    }
+    #result {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+
+
+
+
+    #table1 {
+      text-align: center;
+          border-collapse: collapse;
+          width: 100%;
+    }
+    .tr {
+       border: 1px solid #e6e1e1;
+        color: #6b6767;
+    }
+    #table1 tbody tr {
+        border: 1px solid #25d0b0;
+        background: #cbf8cf;
+    }
+    #table1 tbody tr th {
+        font-weight: normal;
+            padding: 10px 0;
+    }
+
+
+
+    #table1 tr td:nth-child(1){
+      text-align: left;
+      padding-left: 3px;
+    }
+    #table1 td {
+      padding: 5px 0;
+    }
 
 
 /*Start progress block*/
 #progres_bar {
-  flex:1.5;
+  flex:1;
 }
 
 progress[value] {
@@ -148,13 +227,32 @@ progress[value] {
     margin-bottom:5px;
     }
 
+@media (max-width: 800px) {
+  #wrapper {   
+    flex-direction: column-reverse;
+    color: #6b6767;
+
+
+  }
+  #productTable, #consumedProducts, #addProduct {
+  order: 100;
+}
+ #personalData {
+  order: 3;
+ }
+ #progres_bar {
+  order: 2;
+ }
+
+}
+
 
 /*Start footer block*/
 footer {
-  border: 1px solid grey;
+  border-top: 2px solid #DBDBDB;
   clear:both;
-  margin-top: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+  margin-top: 4px;
+  
   }
 
 
@@ -165,3 +263,7 @@ footer p {
     margin: 1px;
   }
 
+
+.hidden {
+    display: none;
+}
