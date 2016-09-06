@@ -182,7 +182,7 @@ article {
 
     /*Start block Table*/
 
-    #table1 {
+    .table1 {
       text-align: center;
           border-collapse: collapse;
           width: 100%;
@@ -191,26 +191,44 @@ article {
        border: 1px solid #e6e1e1;
         color: #6b6767;
     }
-    #table1 tbody tr {
+    .table1 tbody tr {
         border: 1px solid #25d0b0;
         background: #cbf8cf;
     }
-    #table1 tbody tr th {
+    .table1 tbody tr th {
         font-weight: normal;
             padding: 10px 0;
     }
 
 
 
-    #table1 tr td:nth-child(1){
+    .table1 tr td:nth-child(1){
       text-align: left;
       padding-left: 3px;
     }
-    #table1 td {
+    .table1 td {
       padding: 5px 0;
     }
     /*END block Table*/
 
+
+    /*Start block ConsumedProduct*/
+      .inputTable {
+        width: 40px;
+      }
+      .addButton {
+        
+        padding-bottom: 0px;
+        padding-top: 0px;
+        font-size: 18px;
+      }
+
+
+
+
+
+
+    /*END block ConsumedProduct*/
 
       /*Start block ADD Product*/
 

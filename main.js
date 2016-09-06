@@ -1,8 +1,3 @@
-
-		
-
-
-
 var personalData = {};
 
 function personalDataHandler () {
@@ -109,8 +104,8 @@ function changePage (event) {
 		navAddProduct.className = "active";
 		pageStatus = 'addProduct';
 	} else console.log("ніхуя")
-
 };	
+
 
 var navigation = document.getElementById("menu");
 navigation.addEventListener("click", changePage);
@@ -118,45 +113,37 @@ navigation.addEventListener("click", changePage);
 // відображення таблиці
 var productDb = {};
 
-
 function loadProducts() {
-
 	if (tableCreated == true) 
 		return;
-
 	var products = new XMLHttpRequest();
 	products.onreadystatechange = function() {
 		if (products.readyState == 4 && products.status == 200) {
 			var response = products.responseText;
 			productDb = JSON.parse(response);
 			var table = document.querySelector('#table1');
+			console.log(productDb[0].name);
 			productDb.forEach(function(item, i, productDb) {
 				var newRow = document.createElement('tr');
 				newRow.className = 'tr';				
 				var newCell = newRow.insertCell(0);
 				newCell.className = 'name';
 				newCell.innerHTML = item.name;
-
 				var newCell = newRow.insertCell(1);
 				newCell.className = 'calories';
 				newCell.innerHTML = item.calories;
-
 				var newCell = newRow.insertCell(2);
 				newCell.className = 'proteins';
 				newCell.innerHTML = item.proteins;
-
 				var newCell = newRow.insertCell(3);
 				newCell.className = 'fats';
 				newCell.innerHTML = item.fats;
-
 				var newCell = newRow.insertCell(4);
 				newCell.className = 'carbohydrates';
 				newCell.innerHTML = item.carbohydrates;
-
 				var newCell = newRow.insertCell(5);
 				newCell.className = 'group';
 				newCell.innerHTML = item.group;
-
 				var newCell = newRow.insertCell(6);
 				newCell.className = 'weight';
 				newCell.innerHTML = item.weight;
@@ -167,17 +154,10 @@ function loadProducts() {
 	};
 	products.open('GET', 'http://localhost:8000/product', true);
 	products.send();
-
-
-
 };
 
 var tableCreator = document.getElementById("navTable");
 tableCreator.addEventListener("click", loadProducts);
-
-
-
-
 
 function addProduct () {
 	var addpr = new XMLHttpRequest();
@@ -199,9 +179,7 @@ function addProduct () {
 	newProduct.group = formList1.group.value;
 	newProduct.weight = 100;
 	var body = JSON.stringify(newProduct);
-
-	console.log(body);
-	
+	console.log(body);	
 	addpr.open('POST', 'http://localhost:8000/product', true);
 	addpr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 	addpr.onreadystatechange = function() {
@@ -209,29 +187,97 @@ function addProduct () {
 		console.log( this.responseText );
 	}
 	addpr.send(body);
-
-	function clerForm() {
+	function clearForm() {
 		for (let i=1; i<formList1.length;i++) {
 			formList1[i].value = '';
 		}
 	};
-	clerForm();
+	clearForm();
 };
-
 addProductButton = document.getElementById("addProductButton");
 addProductButton.addEventListener('click', addProduct);
 
-       	// var clear = document.querySelectorAll('td .addProductField');
-       	// for (let i=0; i<clear.length; ++i) {
-       	// 	clear[i].value = '';
 
-	 // products.onreadystatechange = function() {
+function loadProductsСonsumption () {
+	
+	var products = new XMLHttpRequest();
+	products.onreadystatechange = function() {
+		if (products.readyState == 4 && products.status == 200) {
+			var response = products.responseText;
+			productDb = JSON.parse(response);
+			clearTable();
+			var search = document.getElementById('productName').value;
+			search = search.toLowerCase();
+			var productsSearched = [];
+			function searchProducts() {
+				for (var i = 0; i < productDb.length; i++) {
+					if (productDb[i].name.toLowerCase().indexOf(search) > -1) {
+						productsSearched.push(productDb[i]);						
+					}	
+				};
+			};
 
-  //       if (products.readyState == 4 && products.status == 201) {
+			searchProducts();			
+			var table = document.querySelector('#tableConsum');
+			productsSearched.forEach(function(item, i, productDb) {
+				var newRow = document.createElement('tr');
+				newRow.className = 'trSearch';				
+				var newCell = newRow.insertCell(0);
+				newCell.className = 'name';
+				newCell.innerHTML = item.name;
+				var newCell = newRow.insertCell(1);
+				newCell.className = 'calories';
+				newCell.innerHTML = item.calories;
+				var newCell = newRow.insertCell(2);
+				newCell.className = 'proteins';
+				newCell.innerHTML = item.proteins;
+				var newCell = newRow.insertCell(3);
+				newCell.className = 'fats';
+				newCell.innerHTML = item.fats;
+				var newCell = newRow.insertCell(4);
+				newCell.className = 'carbohydrates';
+				newCell.innerHTML = item.carbohydrates;
+				var newCell = newRow.insertCell(5);
+				newCell.className = 'group';
+				newCell.innerHTML = item.group;
+				var newCell = newRow.insertCell(6);
+				newCell.className = 'weight';
+				newCell.innerHTML = '<input type="number" class="inputTable">';
+				table.appendChild(newRow);
+				var newCell = newRow.insertCell(7);
+				newCell.className = 'addButton';
+				newCell.className = '_id';
+				newCell.innerHTML = '<button class="addButton">+</button>';
+				table.appendChild(newRow);
 
-  //   		};
-  //   	}
-  
-  //     products.open('POST', 'http://localhost:8000/product', true);
-  //     products.send(body);
-  //    
+			}); 
+				console.log(productsSearched[0]);
+				console.log(productsSearched[1]);
+				console.log(productsSearched[2]);
+				console.log(productsSearched[3]);
+				console.log(productsSearched[4]);
+				console.log(productsSearched[5]);
+				console.log(productsSearched[6]);
+				console.log(productsSearched[7]);
+				console.log(productsSearched[8]);
+				console.log(productsSearched[9]);
+				console.log(productsSearched[10]);
+				
+		}
+	};
+	products.open('GET', 'http://localhost:8000/product', true);
+	products.send();
+};
+
+function clearTable () {
+	var tableRow = document.querySelectorAll('.trSearch');
+	for (var i = 0; i < tableRow.length; i++) {
+		tableRow[i].remove();
+	}
+	
+};
+
+
+
+searchProductButton = document.getElementById("searchProductButton");
+searchProductButton.addEventListener('click', loadProductsСonsumption);

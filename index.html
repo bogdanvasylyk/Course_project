@@ -70,14 +70,27 @@
 				    <th>Вуглеводи</th>
 				    <th>Група</th>
 				    <th>Вага</th>
+
 			  	</tr>
 			  	
 			</table>
 		</section>
 		<section class="1" id='consumedProducts'>
 			<div>Ведіть назву продукту</div>
-			<input type="text" name="searchProduct" id="productName">
-			
+			<input type="text" name="searchProduct" id="productName"><button id="searchProductButton">пошук</button>
+
+			<table id='tableConsum' class="table1">
+				<tr>
+				    <th>Назва продукту</th>
+				    <th>Калорії</th> 
+				    <th>Білки</th>
+				    <th>Жири</th>
+				    <th>Вуглеводи</th>
+				    <th>Група</th>
+				    <th>Вага</th>
+				    <th> </th>
+			  	</tr>
+			  </table>
 		</section>
 		<section class="hidden" id='addProduct'>
 			<form id="addForm">
@@ -134,8 +147,6 @@
 			</form>
 				<button id=addProductButton>Додати продукт</button>
 		</section>
-
-
 		<section id="progres_bar">
 	  		<h1>Результати</h1>
 	  		<article id="progress_block">
