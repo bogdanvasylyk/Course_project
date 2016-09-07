@@ -13,7 +13,7 @@
   		<span class="header_logo">count your health</span>
 	</header>
 	<menu id="menu">
-			<li id="navTable" class="">Табляця калорійності продуктів</li>
+			<li id="navTable" class="">Таблиця калорійності продуктів</li>
 			<li id="navProducts" class="active">Підрахунок спожитих калорій</li>
 			<li id="navAddProduct" class="">Додати продукти</li>		 		  		
 	</menu>
@@ -24,9 +24,10 @@
 				<fieldset id="fieldset1" class="fieldset">
 					<legend>Особисті дані</legend>
 					<p>
-						<label>Зріст: <input type="text" id="height" name="height" placeholder="см" size="2" maxlength="3" required></input></label>
-						<label>Вага: <input type="text" id="weight" name="weight" placeholder="кг" size="2" maxlength="5" required></input></label>
-						<label>Вік: <input type="text" id="age" name="age" placeholder="роки" size="2" maxlength="2" required></input></label>
+						<label>Зріст: <input type="text" id="height" value="170" 
+						name="height" placeholder="см" size="1" maxlength="3" required></input></label>
+						<label>Вага: <input type="text" id="weight" value="60" name="weight" placeholder="кг" size="1" maxlength="5" required></input></label>
+						<label>Вік: <input type="text" id="age" value="25"name="age" placeholder="роки" size="1" maxlength="2" required></input></label>
 					</p>
 					<p>Стать:					
 						<label><input id="sexWoman" type="radio" name="sex" checked value="woman"></input>жінка</label>
@@ -46,11 +47,11 @@
 					<p><label for="sl">Рівень фізичного навантаження</label></p>
 					<p>
 						<select name="activity_level" id="sl">
-							<option value='1.2'>мінімальний (без фізичних навантажень)</option>
-							<option value='1.375'>низький (навантаження 1-3 р/тиждень)</option>
-							<option value='1.4625' selected>середній (3-5 р/тиждень)</option>
-							<option value='1.6375'>високий (6-7 р/тиждень)</option>
-							<option value='1.725'>дуже високий (частіше ніж 1 р/тиждень)</option>
+							<option value='1.2'>  мінімальний (без фізичних навантаж.)</option>
+							<option value='1.375'>низький (навантаж. 1-3 р/тиж.)</option>
+							<option value='1.4625' selected>середній (3-5 р/тиж.)</option>
+							<option value='1.6375'>високий (6-7 р/тиж.)</option>
+							<option value='1.725'> дуже високий (більше 1 р/тиж.)</option>
 						</select>
 					</p>
 				</fieldset>
@@ -77,9 +78,26 @@
 		</section>
 		<section class="1" id='consumedProducts'>
 			<div>Ведіть назву продукту</div>
-			<input type="text" name="searchProduct" id="productName"><button id="searchProductButton">пошук</button>
+			<input type="text" name="searchProduct" id="productName" placeholder="наприклад: 'горох'"><button id="searchProductButton">знайти</button>
 
 			<table id='tableConsum' class="table1">
+				<tbody>
+					<tr>
+					    <th>Назва продукту</th>
+					    <th>Калорії</th> 
+					    <th>Білки</th>
+					    <th>Жири</th>
+					    <th>Вуглеводи</th>
+					    <th>Група</th>
+					    <th>Вага</th>
+					    <th>add</th>
+				  	</tr>
+				  </tbody>
+			  </table>
+			  <p id='secondtable'>Спожиті продукти</p>
+
+			  
+			  <table id='tableEatenProducts' class="table1">		  
 				<tr>
 				    <th>Назва продукту</th>
 				    <th>Калорії</th> 
@@ -87,9 +105,8 @@
 				    <th>Жири</th>
 				    <th>Вуглеводи</th>
 				    <th>Група</th>
-				    <th>Вага</th>
-				    <th> </th>
-			  	</tr>
+				    <th>Вага</th>	    
+			  	</tr>			  	
 			  </table>
 		</section>
 		<section class="hidden" id='addProduct'>
@@ -122,7 +139,7 @@
 									<option>молочні</option>
 									<option>морож. овочі</option>
 									<option>мучне</option>
-									<option>мясо</option>
+									<option>м'ясо</option>
 									<option>овочі</option>
 									<option>орехи</option>
 									<option>протеїн</option>
@@ -149,26 +166,26 @@
 		</section>
 		<section id="progres_bar">
 	  		<h1>Результати</h1>
-	  		<article id="progress_block">
+	  		<div id="progress_block">
 	  			
-	  			<p>Кількість калорій: <span id="amount_cal">0</span> ккал</p>
-	   	 		<p><progress class="determinate" value="80" max="100"></progress>
-	   	 		<span id="percent_cal">80</span><span> %</span></p>
+	  			<div><p>Кількість калорій: <span id="amount_cal">0</span> ккал</p>
+	   	 		<p><progress class="determinate" value="0" max="100"></progress>
+	   	 		<span id="percent_cal">0</span><span> %</span></p>
 
-	   	 		<p>Білки: <span id="amount_prot">0</span> г</p>
-	   	 		<p><progress class="determinate" value="60" max="100"></progress>
-	   	 		<span id="percent_prot">60</span><span> %</span></p>
+	   	 		<div><p>Білки: <span id="amount_prot">0</span> г</p>
+	   	 		<p><progress class="determinate" value="0" max="100"></progress>
+	   	 		<span id="percent_prot">0</span><span> %</span></p></div>
 
-	   	 		<p>Жири: <span id="amount_fat">0</span> г</p>
-	   	 		<p><progress class="determinate" value="75" max="100"></progress>
-	   	 		<span id="percent_fat">75</span><span> %</span></p>
+	   	 		<div><p>Жири: <span id="amount_fat">0</span> г</p>
+	   	 		<p><progress class="determinate" value="0" max="100"></progress>
+	   	 		<span id="percent_fat">0</span><span> %</span></p></div>
 
-	   	 		<p>Вуглеводи: <span id="amount_carb">0</span> г</p>
-	   	 		<p><progress class="determinate" value="90" max="100"></progress>
-	   	 		<span id="percent_carb">90</span><span> %</span></p>
+	   	 		<div><p>Вуглеводи: <span id="amount_carb">0</span> г</p>
+	   	 		<p><progress class="determinate" value="0" max="100"></progress>
+	   	 		<span id="percent_carb">0</span><span> %</span></p></div>
 	   	 		
 	   	 		
-	  		</article>
+	  		</div>
 	  	</section>
 	</div>
 	<footer>
