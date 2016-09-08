@@ -60,7 +60,7 @@ function personalDataHandler() {
 var button = document.getElementById("calcButton");
 button.addEventListener("click", personalDataHandler);
 console.log(personalData);
-// переключання меню		
+// переключання меню        
 var pageStatus = 'consumedProducts';
 var tableCreated = false;
 
@@ -208,7 +208,7 @@ function loadProductsСonsumption() {
             function searchProducts() {
                 for (var i = 0; i < productDb.length; i++) {
                     if (productDb[i].name.toLowerCase().indexOf(
-                        search) > -1) {
+                            search) > -1) {
                         productsSearched.push(productDb[i]);
                     }
                 };

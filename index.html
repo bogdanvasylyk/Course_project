@@ -9,8 +9,14 @@
 </head>
 <body>
 	<header>
-  		<h1 class="headerH1">Food counter</h1>
-  		<span class="header_logo">count your health</span>
+  		<div>
+  			<h1 class="headerH1">Food counter</h1>
+  			<span class="header_logo">count your health</span>
+  		</div>
+  		<div id="alert" class="hidden">
+  			<p>ffff</p>
+  		</div>
+
 	</header>
 	<menu id="menu">
 			<li id="navTable" class="">Таблиця калорійності продуктів</li>
@@ -96,7 +102,7 @@
 			  </table>
 			  <p id='secondtable'>Спожиті продукти</p>
 
-			  
+
 			  <table id='tableEatenProducts' class="table1">		  
 				<tr>
 				    <th>Назва продукту</th>
@@ -165,7 +171,8 @@
 				<button id=addProductButton>Додати продукт</button>
 		</section>
 		<section id="progres_bar">
-	  		<h1>Результати</h1>
+		<fieldset class="fieldset">
+	  		<legend>Результати</legend>
 	  		<div id="progress_block">
 	  			
 	  			<div><p>Кількість калорій: <span id="amount_cal">0</span> ккал</p>
@@ -182,10 +189,9 @@
 
 	   	 		<div><p>Вуглеводи: <span id="amount_carb">0</span> г</p>
 	   	 		<p><progress class="determinate" value="0" max="100"></progress>
-	   	 		<span id="percent_carb">0</span><span> %</span></p></div>
-	   	 		
-	   	 		
+	   	 		<span id="percent_carb">0</span><span> %</span></p></div>	   	 		
 	  		</div>
+	  	</fieldset>
 	  	</section>
 	</div>
 	<footer>
