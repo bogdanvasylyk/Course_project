@@ -26,6 +26,7 @@ header {
     font-weight: bolder;
     padding: 0 5px;
     margin-top:4px;
+    font-family: sans-serif
 }
 
 header:first-child {
@@ -67,6 +68,7 @@ header h1 {
     flex-direction: row;
     color: #d2d2d2;
     flex:1;
+    margin-top: 20px
 }
 
 #PersonalData {
@@ -124,14 +126,16 @@ menu li {
     text-decoration: none;
     font-family: sans-serif;
     font-size: 18px;
-    width: 25%;
+    width: 30%;
     text-align: center;
+    vertical-align: middle;
     cursor: pointer;
     outline: none;
-    transition: .3s;
+    transition: .2s;
     border: 1px solid #FFF;
     border-radius: 4px;
 }
+
 
 menu li.active {
     background-color: #00A9AF;
@@ -200,6 +204,11 @@ article {
     text-align: center;
     border-collapse: collapse;
     width: 100%;
+    border-radius: 4px;
+}
+
+th {
+  color:#fff;
 }
 
 tr {
@@ -251,17 +260,19 @@ tr {
 }
 
 #secondtable {  
-    border-top-color: #DBDBDB;
-    border-top-width: 2px;
-    border-top-style: solid;
     padding-bottom: 5px;
     padding-top: 5px;
-    color: white;
+    color: #6b6767;
     text-decoration: none;
     font-family: sans-serif;
     font-size: 18px;    
     text-align: center;   
-    background-color: #00A9AF;      
+    background-color: transparent; 
+    border:1px solid white;    
+    background: white; 
+    border-radius: 4px;
+    margin-bottom: 4px;
+    margin-top: 20px;
    
 }
 
@@ -318,11 +329,28 @@ button#searchProductButton {
     flex: 1;
 }
 
+#progres_bar .progText {
+  display: flex;
+  flex-direction: row;
+}
 
+#progres_bar .progText span {
+  display: block;
+  margin-left: 2px
+}
 
- progress[value]::-webkit-progress-bar {
+.progrPers {
+    padding:5px 1px 10px 1px; 
+}
+
+.progText {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+progress[value]::-webkit-progress-bar {
   background-color: #eee;
-  border-radius: 2px;
+  border-radius: 5px;
   
 }
 progress[value] {
@@ -338,16 +366,27 @@ progress[value] {
     margin-bottom: 5px;
     border-radius: 4px;
 }
-progress[value]::-webkit-progress-value {
+.determinate[value]::-webkit-progress-value {
     background-image:
      -webkit-linear-gradient(-45deg, 
                              transparent 15%, rgba(0, 0, 0, .1) 15%, 
                              rgba(0,0, 0, .1) 85%, transparent 85%),
      
-     -webkit-linear-gradient(left, #00A9AF, #FF5350);
+     -webkit-linear-gradient(left, #00A9AF, #00A9AF);
 
     border-radius: 4px; 
     
+}
+
+.determinate1[value]::-webkit-progress-value {
+    background-image:
+     -webkit-linear-gradient(-45deg, 
+                             transparent 15%, rgba(0, 0, 0, .1) 15%, 
+                             rgba(0,0, 0, .1) 85%, transparent 85%),
+     
+     -webkit-linear-gradient(left, #FF5350, #FF5350);
+
+    border-radius: 4px;     
 }
 
 
@@ -408,7 +447,7 @@ button:hover,#calcButton:hover {
 
 /*Start footer block*/
 footer {
-    border-top: 2px solid #DBDBDB;
+    border-top: 1px solid #DBDBDB;
     clear: both;
     margin-top: 4px;
 

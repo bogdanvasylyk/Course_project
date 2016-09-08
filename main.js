@@ -173,8 +173,8 @@ function loadProducts() {
 var tableCreator = document.getElementById("navTable");
 tableCreator.addEventListener("click", loadProducts);
 
-function addProduct() {
-    var addpr = new XMLHttpRequest();
+function addProduct() {		
+    var formList1 = document.forms[1].elements;
     var newProduct = {
         name: '',
         calories: 0,
@@ -184,7 +184,6 @@ function addProduct() {
         group: '',
         weight: 0
     };
-    var formList1 = document.forms[1].elements;
     Object.assign(newProduct, {
         name: formList1.name.value,
         calories: +formList1.calories.value,
@@ -194,6 +193,7 @@ function addProduct() {
         group: formList1.group.value,
         weight: 100,
     });
+    var addpr = new XMLHttpRequest();
     var body = JSON.stringify(newProduct);
     console.log(body);
     addpr.open('POST', 'http://localhost:8000/product', true);
@@ -217,8 +217,11 @@ addProductButton.addEventListener('click', addProduct);
 var productsSearched = [];
 
 function loadProductsСonsumption() {
-    
-
+    var search = document.getElementById('productName').value;
+	if (search=='') {
+		clearTable();
+		return;
+	};
     var products = new XMLHttpRequest();
     products.onreadystatechange = function() {
         if (products.readyState == 4 && products.status == 200) {
@@ -386,14 +389,27 @@ function addFood(event) {
 	        var headerAlert = document.getElementById('alert');
 	        if (perCal>100) {
 	        	headerAlert.className = '';
-	        	headerAlert.firstElementChild.innerHTML = "Стоп! Стоп! Стоп! На сьогодні вистачить!!";
-	        } else if (perFat>100) {	        	
+	        	headerAlert.firstElementChild.innerHTML = "Стоп! Стоп! Стоп! На сьогодні досить!!";
+	        	progres_cal.className = 'determinate1';
+	        } else {
+
+	        if (perFat>100) {	        	
 	        	headerAlert.className = '';
 	        	headerAlert.firstElementChild.innerHTML = `Поменше жиру, ${sex}`;
-	        } else if (perCarb>100) {	        	
-	        	headerAlert.className = '';
-	        	headerAlert.firstElementChild.innerHTML = "Цукор - ворог твій!!!";
+	        	progres_fat.className = 'determinate1';
 	        };
+
+	        if (perCarb>100) {	        	
+	        	headerAlert.className = '';
+
+	        	headerAlert.firstElementChild.innerHTML = "Цукор - ворог твій!!!";
+	        	progres_carb.className = 'determinate1';
+	        };
+	        if (progres_prot>100) {	        	
+	        	headerAlert.className = '';
+	        	headerAlert.firstElementChild.innerHTML = "Не налягай на прот";
+	        	progres_prot.className = 'determinate1';
+	        }};
 		};
 
 
